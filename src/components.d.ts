@@ -6,56 +6,88 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
+    interface MyApp {
+    }
+    interface MyButton {
+    }
+    interface MyForm {
+    }
+    interface MyInput {
+        "onInputChange": (value: string) => void;
+    }
+    interface MyText {
+        "inputValue": string;
     }
 }
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLMyAppElement extends Components.MyApp, HTMLStencilElement {
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    var HTMLMyAppElement: {
+        prototype: HTMLMyAppElement;
+        new (): HTMLMyAppElement;
+    };
+    interface HTMLMyButtonElement extends Components.MyButton, HTMLStencilElement {
+    }
+    var HTMLMyButtonElement: {
+        prototype: HTMLMyButtonElement;
+        new (): HTMLMyButtonElement;
+    };
+    interface HTMLMyFormElement extends Components.MyForm, HTMLStencilElement {
+    }
+    var HTMLMyFormElement: {
+        prototype: HTMLMyFormElement;
+        new (): HTMLMyFormElement;
+    };
+    interface HTMLMyInputElement extends Components.MyInput, HTMLStencilElement {
+    }
+    var HTMLMyInputElement: {
+        prototype: HTMLMyInputElement;
+        new (): HTMLMyInputElement;
+    };
+    interface HTMLMyTextElement extends Components.MyText, HTMLStencilElement {
+    }
+    var HTMLMyTextElement: {
+        prototype: HTMLMyTextElement;
+        new (): HTMLMyTextElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
+        "my-app": HTMLMyAppElement;
+        "my-button": HTMLMyButtonElement;
+        "my-form": HTMLMyFormElement;
+        "my-input": HTMLMyInputElement;
+        "my-text": HTMLMyTextElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
+    interface MyApp {
+    }
+    interface MyButton {
+    }
+    interface MyForm {
+    }
+    interface MyInput {
+        "onInputChange"?: (value: string) => void;
+    }
+    interface MyText {
+        "inputValue"?: string;
     }
     interface IntrinsicElements {
-        "my-component": MyComponent;
+        "my-app": MyApp;
+        "my-button": MyButton;
+        "my-form": MyForm;
+        "my-input": MyInput;
+        "my-text": MyText;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "my-app": LocalJSX.MyApp & JSXBase.HTMLAttributes<HTMLMyAppElement>;
+            "my-button": LocalJSX.MyButton & JSXBase.HTMLAttributes<HTMLMyButtonElement>;
+            "my-form": LocalJSX.MyForm & JSXBase.HTMLAttributes<HTMLMyFormElement>;
+            "my-input": LocalJSX.MyInput & JSXBase.HTMLAttributes<HTMLMyInputElement>;
+            "my-text": LocalJSX.MyText & JSXBase.HTMLAttributes<HTMLMyTextElement>;
         }
     }
 }
